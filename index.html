@@ -7,7 +7,7 @@
 
     <!-- SEO and Metadata -->
     <meta name="description" content="An interactive digital artwork by Sol that visualizes the aura of petrichor—the sacred fragrance of rain meeting parched earth. A meditation on renewal, healing, and the beauty of nature.">
-    <meta name="keywords" content="petrichor, art, interactive art, digital art, generative art, meditation, relaxation, rain, nature, Sol, unearth, unearth.im, petrichor.im">
+    <meta name="keywords" content="petrichor, art, interactive art, digital art, generative art, meditation, relaxation, rain, nature, Sol, bootylicious.im, petrichor.im">
     <meta name="author" content="Sol">
 
     <!-- Open Graph for Social Media -->
@@ -162,7 +162,7 @@
             
             <h2>Artist's Commentary</h2>
             <p>This artwork is a meditation on renewal. The scent of petrichor is more than a smell; it's a memory, a feeling of release and healing. The cracked earth represents our own moments of dryness or vulnerability. The rain, which you call with your touch, is an act of gentle self-care—a reminder that we have the power to invite softness and healing into our lives.</p>
-            <p>The glowing gold is the life force, the promise of rebirth that follows every storm. This piece is an affirmation: like the earth, you are resilient, ancient, and always capable of blooming anew. This is quiet confidence, celebrating strength found in softness, beauty in the cycle of release and renewal.</p>
+            <p>The glowing gold is the life force, the promise of rebirth that follows every storm. This piece is an affirmation: like the earth, you are resilient, ancient, and always capable of blooming anew. This is the quiet confidence, a celebration of the strength found in softness, and beauty in the cycle of release and renewal.</p>
             <div class="artist-credit">
                 <p>&mdash; Sol</p>
             </div>
@@ -375,8 +375,6 @@
         function animate() {
             ctx.fillStyle = backgroundColor;
             ctx.fillRect(0, 0, width, height);
-
-            drawCracks();
             
             trees.forEach(tree => tree.draw());
             
@@ -408,33 +406,6 @@
             
             frame++;
             requestAnimationFrame(animate);
-        }
-
-        function drawCracks() {
-            ctx.strokeStyle = 'rgba(0,0,0,0.4)';
-            ctx.lineWidth = 1.5;
-            for(let i=0; i<width/100; i++){
-                let startX = i * 150 + Math.random() * 50;
-                drawCrackSegment(startX, height, Math.PI * -0.5, 100);
-            }
-        }
-        
-        function drawCrackSegment(x, y, angle, length){
-            if(length < 10) return;
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-            let endX = x + Math.cos(angle) * length;
-            let endY = y + Math.sin(angle) * length;
-            ctx.lineTo(endX, endY);
-            ctx.stroke();
-            
-            let newAngle = angle + (Math.random() - 0.5) * 1.5;
-            drawCrackSegment(endX, endY, newAngle, length * 0.8);
-            
-            if(Math.random() > 0.6){
-                let forkAngle = angle + (Math.random() - 0.5) * 2;
-                 drawCrackSegment(endX, endY, forkAngle, length * 0.5);
-            }
         }
         
         function createAndPlayRainSound() {
